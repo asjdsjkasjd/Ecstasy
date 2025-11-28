@@ -641,16 +641,14 @@ function library:init()
         end
         self.images[i] = readfile(self.cheatname..'/assets/'..i..'.oh');
     end
+local screenGui = Instance.new('ScreenGui');
+if syn then syn.protect_gui(screenGui); end
+screenGui.Parent = game:GetService('CoreGui');
+screenGui.Enabled = true;
 
-
-    local screenGui = Instance.new('ScreenGui');
-    if syn then syn.protect_gui(screenGui); end
-    screenGui.Parent = game:GetService('CoreGui');
-    screenGui.Enabled = true;
-    utility:Instance('ImageButton', {
-        Parent = screenGui,
-        Visible = true,
-        Modal = false,
+utility:Connection(library.unloaded, function()
+    screenGui:Destroy()
+end)
         Size = UDim2.new(1,0,1,0),
         ZIndex = 9999999999,
         Transparency = 1;
