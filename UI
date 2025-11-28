@@ -637,10 +637,10 @@ function library:init()
     end
 
 
-    local screenGui = Instance.new('ScreenGui');
-    if syn then syn.protect_gui(screenGui); end
-    screenGui.Parent = game:GetService('CoreGui');
-    screenGui.Enabled = true;
+local screenGui = Instance.new('ScreenGui');
+if syn then syn.protect_gui(screenGui); end
+screenGui.Parent = game:GetService('CoreGui');
+screenGui.Enabled = false; -- Start disabled instead of true
     utility:Instance('ImageButton', {
         Parent = screenGui,
         Visible = true,
