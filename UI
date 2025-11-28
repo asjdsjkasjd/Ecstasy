@@ -4604,8 +4604,28 @@ function library:init()
     self.targetTool = self.targetIndicator:AddValue({key = 'Weapon   :', value = 'nil'})
 
     self:SetTheme(library.theme);
-    self.hasInit = true
+function library:init()
+    if self.hasInit then
+        return
+    end
 
+    local tooltipObjects = {};
+
+    makefolder(self.cheatname)
+    makefolder(self.cheatname..'/assets')
+    makefolder(self.cheatname..'/'..self.gamename)
+    makefolder(self.cheatname..'/'..self.gamename..'/configs');
+
+    -- Set the UI to be closed by default
+    self.open = false
+    self.opening = false
+
+    -- Rest of your existing initialization code...
+    
+    -- Remove or comment out this line that forces the UI to open:
+    -- self:SetOpen(true);
+    
+    self.hasInit = true
 end
 
 function library:CreateSettingsTab(menu)
