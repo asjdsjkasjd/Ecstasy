@@ -4604,7 +4604,6 @@ function library:init()
     self.targetTool = self.targetIndicator:AddValue({key = 'Weapon   :', value = 'nil'})
 
     self:SetTheme(library.theme);
-    self:SetOpen(true);
     self.hasInit = true
 
 end
